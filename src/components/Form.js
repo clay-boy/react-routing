@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 function Form({users, setUsers}) {
-
+ 
     const [formData, setFormData] = useState({
         name : "",
         username : ""
     })
-
+const navigate = useNavigate()
     const handleOnchange = (event)=>{
         const name = event.target.name
         const value = event.target.value
@@ -36,6 +40,14 @@ const handleSubmit =(e)=> {
         name : "",
         username : ""
     })
+    
+    navigate('/')
+     
+    Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
 }
 
   return (
